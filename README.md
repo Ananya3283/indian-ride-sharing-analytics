@@ -1,189 +1,181 @@
-# Indian Ride Sharing Analytics Dashboard
+# Indian Ride Sharing Analytics
 
-## Overview
+An end-to-end data analytics project based on ride-sharing booking data. The project looks at booking performance, revenue, cancellations, vehicle types, customer ratings, payment methods, and location-level trends.
 
-This project analyzes ride-sharing booking data to understand customer behavior, booking trends, revenue performance, cancellations, and operational efficiency. The analysis combines Python for data cleaning and exploration, MySQL for business queries, and Power BI for building an interactive dashboard.
+The analysis was carried out using Python, MySQL, and Power BI, starting with data cleaning and exploratory analysis and ending with an interactive dashboard.
 
-The objective was to transform raw booking data into meaningful insights that can help improve business decisions and customer experience.
+## Dashboard
 
----
+<p align="center">
+  <img src="Dashboard/dashboard.png" width="900">
+</p>
 
-## Business Problem
+## Project Objective
 
-Ride-sharing companies generate a large volume of booking data every day. Without proper analysis, it becomes difficult to identify revenue trends, understand customer preferences, monitor cancellations, or evaluate operational performance.
+The main goal of this project was to understand how ride bookings are performing and identify patterns that could be useful for business decisions.
 
-This project focuses on answering key business questions such as:
+Some of the questions explored in the analysis were:
 
-- Which vehicle types generate the highest revenue?
-- What are the most popular pickup locations?
-- What percentage of bookings are successfully completed?
-- Which payment methods are preferred by customers?
+- How many bookings are completed successfully?
+- Which vehicle types generate the most revenue?
+- Which pickup locations have the highest number of bookings?
+- What are the most commonly used payment methods?
 - How does revenue change over time?
-
----
+- What are the main reasons for ride cancellations?
+- How do customer and driver ratings vary?
+- How do completed, cancelled, and incomplete rides compare?
 
 ## Dataset
 
-The dataset contains approximately **150,000 ride booking records** with information such as:
+The dataset contains approximately **150,000 ride booking records**.
 
-- Booking Date & Time
+The main fields include:
+
+- Booking Date and Time
+- Booking ID
+- Customer ID
 - Booking Status
 - Vehicle Type
-- Pickup & Drop Location
+- Pickup Location
+- Drop Location
+- Average VTAT
+- Average CTAT
 - Booking Value
 - Ride Distance
 - Driver Rating
 - Customer Rating
 - Payment Method
-- Cancellation Details
+- Customer and Driver Cancellation Details
+- Incomplete Ride Details
 
----
+The cleaned dataset is not included in the repository because of its file size.
 
-## Tools & Technologies
+## Tools Used
 
-- Python
-- Pandas
-- NumPy
-- Matplotlib
-- MySQL
-- Power BI
-- Microsoft Excel
-
----
+- **Python** – data cleaning and exploratory data analysis
+- **Pandas** – data manipulation
+- **NumPy** – numerical operations
+- **Matplotlib** – visualizations
+- **MySQL** – SQL analysis and business queries
+- **Power BI** – interactive dashboard
+- **Excel** – initial data handling
 
 ## Project Workflow
 
-### 1. Data Cleaning (Python)
+### 1. Data Cleaning
 
-The dataset was cleaned using Pandas by:
+The raw dataset was cleaned using Python and Pandas.
 
-- Handling missing values
+The cleaning process included:
+
+- Checking missing values
 - Removing duplicate records
-- Converting data types
+- Converting columns to appropriate data types
+- Cleaning text and ID fields
+- Handling missing numerical values
 - Standardizing column names
-- Creating additional columns for analysis
+- Creating additional fields required for analysis
 
----
+The cleaned data was then used for the SQL analysis and Power BI dashboard.
 
 ### 2. Exploratory Data Analysis
 
-Performed exploratory analysis to identify patterns and trends through visualizations, including:
+Exploratory analysis was performed to understand booking patterns and identify important trends.
+
+The analysis covered:
 
 - Booking status distribution
-- Vehicle type analysis
+- Revenue by vehicle type
+- Ride distance
+- Booking value
+- Customer and driver ratings
+- Payment methods
+- Pickup and drop locations
 - Revenue trends
-- Ride distance analysis
-- Payment method distribution
-- Pickup and drop location analysis
-- Customer and driver rating analysis
-- Cancellation trends
+- Cancellation patterns
+- Day-wise booking trends
 
-A total of **15 exploratory visualizations** were created.
-
----
+The Python notebook and EDA visualizations are available in the `python` folder.
 
 ### 3. SQL Analysis
 
-Imported the cleaned dataset into MySQL and wrote **30 SQL queries** covering:
+The cleaned data was imported into MySQL for further analysis.
 
-- Revenue analysis
-- Booking trends
-- Vehicle performance
-- Payment analysis
-- Cancellation analysis
+A set of **30 SQL queries** was created to answer different business questions involving:
+
+- Booking performance
+- Revenue
+- Vehicle types
+- Payment methods
+- Cancellations
+- Customer and driver ratings
+- Location analysis
+- Ranking
+- Aggregations
+- Common Table Expressions
 - Window functions
-- Common Table Expressions (CTEs)
-- Ranking and aggregation
 
----
+The SQL queries are available in:
+
+`SQL/ride_analytics_queries.sql`
 
 ### 4. Power BI Dashboard
 
-Built an interactive dashboard featuring:
+The final analysis was presented through an interactive Power BI dashboard.
 
-- KPI Cards
-- Revenue Analysis
+The dashboard includes:
+
+- Total Bookings
+- Average Ride Distance
+- Total Revenue
+- Average Driver Rating
+- Average Booking Value
+- Completion Rate
 - Booking Status Distribution
 - Revenue by Vehicle Type
 - Revenue Trend
 - Top Pickup Locations
-- Payment Method Analysis
-- Interactive Filters and Slicers
+- Payment Method Distribution
+- Date, Vehicle Type, Booking Status and Payment Method filters
 
----
+The Power BI file is available in:
 
-## Dashboard Preview
+`Power BI/Ride_Analytics.pbix`
 
-<p align="center">
-  <img src="Dashboard Images/dashboard.png" width="900">
-</p>
+## Key Findings
 
----
+Some of the main observations from the analysis were:
 
-## Key Insights
+- Around **150,000 bookings** are present in the dataset.
+- Completed rides account for approximately **62% of total bookings**.
+- Total revenue is approximately **₹52 million**.
+- The average ride distance is around **24.64 km**.
+- The average driver rating is approximately **4.2**.
+- The average booking value is around **₹508**.
+- Auto and Go Mini contribute a significant share of overall revenue.
+- A relatively small group of pickup locations accounts for a large number of bookings.
+- UPI and other digital payment methods make up a substantial portion of payments.
 
-- Completed rides account for the majority of total bookings.
-- Auto and Go Mini contribute the highest share of total revenue.
-- Digital payment methods are preferred over cash.
-- Revenue remains relatively stable with moderate day-to-day fluctuations.
-- A small number of pickup locations generate a significant share of bookings.
-
----
+These findings were used to build the final Power BI dashboard and support the business analysis.
 
 ## Project Structure
 
-```
-Indian-Ride-Sharing-Analytics/
+```text
+indian-ride-sharing-analytics/
 │
-├── Dataset/
-│   └── ride_cleaned.csv
-│
-├── Python/
-│   ├── Ride_Analytics.ipynb
-│   └── EDA Charts/
-│
-├── SQL/
-│   └── ride_analytics_queries.sql
+├── Dashboard/
+│   └── dashboard.png
 │
 ├── Power BI/
 │   └── Ride_Analytics.pbix
 │
-├── Dashboard Images/
-│   └── dashboard.png
+├── SQL/
+│   └── ride_analytics_queries.sql
+│
+├── python/
+│   ├── ride_analytics.ipynb
+│   └── EDA Charts/
+│       ├── EDA charts
+│       └── ...
 │
 └── README.md
-```
-
----
-
-## Skills Demonstrated
-
-- Data Cleaning
-- Exploratory Data Analysis (EDA)
-- Data Visualization
-- SQL Query Writing
-- Business Intelligence
-- Dashboard Design
-- Data Storytelling
-
----
-
-## Future Improvements
-
-Potential enhancements for this project include:
-
-- Geographic mapping of rides
-- Customer segmentation
-- Revenue forecasting
-- Time-series analysis
-- Predictive models for ride cancellations
-
----
-
-## Contact
-
-**Ananya Rawat**
-
-Email: ananyarawat2824@gmail.com
-
-GitHub: https://github.com/Ananya3283
