@@ -1,5 +1,7 @@
 # Indian Ride Sharing Analytics
 
+**Live dashboard:** [ananya3283.github.io/indian-ride-sharing-analytics](https://ananya3283.github.io/indian-ride-sharing-analytics/), an interactive web version of the Power BI report. Filter by vehicle type, quarter and booking status; every figure is computed from the dataset in `Dataset/` (`web/scripts/build_data.py`): 150,000 bookings, Rs. 51.8M booking value, 62% completed, Auto 25% of revenue.
+
 An end-to-end data analytics project based on ride-sharing booking data. The project looks at booking performance, revenue, cancellations, vehicle types, customer ratings, payment methods, and location-level trends.
 
 The analysis was carried out using Python, MySQL, and Power BI, starting with data cleaning and exploratory analysis and ending with an interactive dashboard.
@@ -48,7 +50,7 @@ The main fields include:
 - Customer and Driver Cancellation Details
 - Incomplete Ride Details
 
-The cleaned dataset is not included in the repository because of its file size.
+Both files are in `Dataset/`: the raw `ncr_ride_bookings.xlsx` and the cleaned `ride_cleaned.csv` used for the SQL analysis, the Power BI report and the web dashboard.
 
 ## Tools Used
 
@@ -166,6 +168,10 @@ indian-ride-sharing-analytics/
 ├── Dashboard/
 │   └── dashboard.png
 │
+├── Dataset/
+│   ├── ncr_ride_bookings.xlsx
+│   └── ride_cleaned.csv
+│
 ├── Power BI/
 │   └── Ride_Analytics.pbix
 │
@@ -179,3 +185,6 @@ indian-ride-sharing-analytics/
 │       └── ...
 │
 └── README.md
+
+## Web version
+`web/` is a React + TypeScript + Vite app (Tailwind, Recharts, Motion), deployed to GitHub Pages by `.github/workflows/pages.yml`. Rebuild the data with `python web/scripts/build_data.py`, then `cd web && npm install && npm run dev`.
